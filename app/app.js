@@ -14,6 +14,12 @@ app.config(['$routeProvider',
       .when('/uploadphoto',{
         templateUrl: 'partials/uploadphoto.html',
         controller: 'PhotoCtrl'
+      })
+      .when('/profile',{
+        redirectTo: '/uploadphoto'
+      })
+      .otherwise({
+        redirectTo: '/'
       });
   }
 ]);
