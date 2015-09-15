@@ -2,17 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Group Pinterest</title>
+  <title>xHub</title>
   <link rel="stylesheet" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body ng-app="PinterestApp">
-  
+<body ng-app="xhubApp">
 
-
-  <div ng-controller="AuthCtrl">
-    <div id="ngView" ng-hide="myValue" ng-view></div>
-  </div>
+  <div ng-view></div>
 
   <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="lib/bower_components/angular/angular.min.js"></script>
@@ -21,5 +17,6 @@
   <script src="lib/bower_components/firebase/firebase.js"></script>
   <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
   <script src="app/app.js"></script>
+  <script src="app/controllers/LoginCtrl.js"
 </body>
 </html>
