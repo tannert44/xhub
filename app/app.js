@@ -6,6 +6,14 @@ app.config(['$routeProvider',
       .when('/', {
         templateUrl: 'partials/login.html',
         controller: 'LoginCtrl'
+      })
+      .when('/signup', {
+        templateUrl: 'partials/signup.html',
+        controller: 'SignUpCtrl'
+      })
+      .when('/uploadphoto',{
+        templateUrl: 'partials/uploadphoto.html',
+        controller: 'PhotoCtrl'
       });
   }
 ]);
