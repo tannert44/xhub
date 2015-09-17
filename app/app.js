@@ -11,12 +11,9 @@ app.config(['$routeProvider',
         templateUrl: 'partials/signup.html',
         controller: 'SignUpCtrl'
       })
-      .when('/uploadphoto',{
-        templateUrl: 'partials/uploadphoto.html',
-        controller: 'PhotoCtrl'
-      })
-      .when('/profile',{
-        redirectTo: '/uploadphoto'
+      .when('/profile', {
+        templateUrl: 'partials/profile.html',
+        controller: 'ProfileCtrl'
       })
       .otherwise({
         redirectTo: '/'
