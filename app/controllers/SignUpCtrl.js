@@ -4,12 +4,14 @@ app.controller("SignUpCtrl",[
   '$location',
   function($scope, $firebaseArray, $location) {
     console.log("Jesus is lord");
+
+    //Keeps User Data
     var userObject = {};
-
+    //Get Firebase reference
     var ref = new Firebase("https://xhub.firebaseio.com/users");
-
+    //Creates a firebase array with reference
     var obj = $firebaseArray(ref);
-
+    //Logs the user in directly after creating an account is called in createUserProfile()
     var createLogin = function(){
       ref.authWithPassword({
         email    : $scope.newEmail,
@@ -27,7 +29,7 @@ app.controller("SignUpCtrl",[
         }
       });
     };
-
+    //Creates User Profile with information from inputs on signup.html
     $scope.createUserProfile = function(){
       console.log("clickfired");
       if($scope.password === $scope.confirmPass){

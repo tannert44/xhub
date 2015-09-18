@@ -15,6 +15,10 @@ app.config(['$routeProvider',
         templateUrl: 'partials/profile.html',
         controller: 'ProfileCtrl'
       })
+      .when('/repo', {
+        templateUrl: 'partials/createrepo.html',
+        controller: 'CreateRepoCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
