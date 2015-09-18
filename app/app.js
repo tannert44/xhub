@@ -15,9 +15,13 @@ app.config(['$routeProvider',
         templateUrl: 'partials/profile.html',
         controller: 'ProfileCtrl'
       })
-      .when('/repo', {
-        templateUrl: 'partials/createrepo.html',
-        controller: 'CreateRepoCtrl'
+      .when('/chooseskill', {
+        templateUrl: 'partials/chooseskill.html',
+        controller: 'ChooseSkillCtrl'
+      })
+      .when('/culinaryrepo', {
+        templateUrl: 'partials/culinaryrepo.html',
+        controller: 'CulinaryRepoCtrl'
       })
       .otherwise({
         redirectTo: '/'
