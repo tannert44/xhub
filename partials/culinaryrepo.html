@@ -15,32 +15,32 @@
 
     <div class="form-group">
 
-      <label for="inputPassword3" class="col-sm-2 control-label">Name</label>
+      <label for="inputNameRecipe" class="col-sm-2 control-label">Name</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword3" placeholder="Chicken Parm">
+        <input type="text" class="form-control"  placeholder="Chicken Parm" ng-model="recipeName">
       </div>
 
     </div>
 
     <div class="form-group">
 
-      <label for="inputPassword3" class="col-sm-2 control-label">Cuisine</label>
+      <label for="inputCuisine" class="col-sm-2 control-label">Cuisine</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword3" placeholder="Cajun">
+        <input type="text" class="form-control"  placeholder="Cajun" ng-model="cuisineName">
       </div>
 
     </div>
 
     <div class="form-group">
 
-      <label for="inputEmail3" class="col-sm-2 control-label">Ingredients</label>
+      <label for="inputIngredients" class="col-sm-2 control-label">Ingredients</label>
 
       <div class="col-sm-10 container-ingredient">
 
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Celery 1/4 Cup">
+          <input type="text" class="form-control ingredient-name" placeholder="Celery 1/4 Cup">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addIngredient()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
           </span>
@@ -52,14 +52,14 @@
 
     <div class="form-group">
 
-      <label for="inputEmail3" class="col-sm-2 control-label">Utensils</label>
+      <label for="inputUtensils" class="col-sm-2 control-label">Utensils</label>
 
       <div class="col-sm-10 container-technique">
 
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="12-inch non-stick skillet">
+          <input type="text" class="form-control utensilName" placeholder="12-inch non-stick skillet">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addTechnique()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+            <button class="btn btn-default" type="button" ng-click="addUtensil()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
           </span>
         </div><!-- /input-group -->
 
@@ -69,10 +69,10 @@
 
     <div class="form-group">
 
-      <label for="inputPassword3" class="col-sm-2 control-label">Instructions</label>
+      <label for="inputCookingInstructions" class="col-sm-2 control-label">Instructions</label>
 
       <div class="col-sm-10">
-        <textarea class="form-control"></textarea>
+        <textarea class="form-control" ng-model="cookingInstructions"></textarea>
       </div>
 
     </div>
@@ -89,34 +89,66 @@
 
     <div class="form-group">
 
-      <label for="inputPassword3" class="col-sm-2 control-label">Name</label>
+      <label for="inputTechniqueName" class="col-sm-2 control-label">Name</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword3" placeholder="Quick Pickle">
+        <input type="text" class="form-control"  placeholder="Quick Pickle" ng-model="techniqueName">
       </div>
 
     </div>
 
     <div class="form-group">
 
-      <label for="inputPassword3" class="col-sm-2 control-label">Difficulty</label>
+      <label for="inputDifficulty" class="col-sm-2 control-label">Difficulty</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword3" placeholder="Novice, Experienced, Professional">
+        <input type="text" class="form-control"  placeholder="Novice, Experienced, Professional" ng-model="difficutly">
       </div>
 
     </div>
 
     <div class="form-group">
 
-      <label for="inputPassword3" class="col-sm-2 control-label">Instructions</label>
+      <label for="inputTechniqueInstructions" class="col-sm-2 control-label">Instructions</label>
 
       <div class="col-sm-10">
-        <textarea class="form-control"></textarea>
+        <textarea class="form-control" ng-model="techniqueInstructions"></textarea>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <div class="col-sm-10 choose-availability1 text-center">
+        
+        <div class="radio">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          <label>
+            <input type="radio" name="repo-availability">Public
+          </label>
+
+        </div>
+      </div>
+      <div class="col-sm-10 choose-availability2 text-center">
+        <div class="radio">
+          <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+          <label>
+            <input type="radio" name="repo-availability">Private
+          </label>
+        </div>
       </div>
 
     </div>
 
   </form>
 
+</div>
+
+
+
+
+<div class="container-fluid text-right">
+  <button class="btn btn-primary" ng-click="saveAndClear()">Create Another Repo</button>
+  <button class="btn btn-primary" ng-click="createToProfile()">Create and Go To Profile</button>
+  <button class="btn btn-primary" ng-click="createToCulPort">Create and Go To Culinary Portfolio</button>
 </div>
