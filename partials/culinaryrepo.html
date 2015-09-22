@@ -57,7 +57,7 @@
       <div class="col-sm-10 container-technique">
 
         <div class="input-group">
-          <input type="text" class="form-control utensilName" placeholder="12-inch non-stick skillet">
+          <input type="text" class="form-control utensil-name" placeholder="12-inch non-stick skillet">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addUtensil()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
           </span>
@@ -102,7 +102,7 @@
       <label for="inputDifficulty" class="col-sm-2 control-label">Difficulty</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control"  placeholder="Novice, Experienced, Professional" ng-model="difficutly">
+        <input type="text" class="form-control"  placeholder="Novice, Experienced, Professional" ng-model="difficulty">
       </div>
 
     </div>
@@ -124,7 +124,7 @@
         <div class="radio">
           <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
           <label>
-            <input type="radio" name="repo-availability">Public
+            <input type="radio" name="repo-availability" ng-model="availability" value="true">Public
           </label>
 
         </div>
@@ -133,7 +133,7 @@
         <div class="radio">
           <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
           <label>
-            <input type="radio" name="repo-availability">Private
+            <input type="radio" name="repo-availability" ng-model="availability" value="false">Private
           </label>
         </div>
       </div>
