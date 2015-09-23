@@ -38,7 +38,7 @@ app.controller("LoginCtrl",[
           $location.path('/profile');
           $scope.$apply();
         }
-      });
+      }, {remember: "sessionOnly"});
       
     };
 

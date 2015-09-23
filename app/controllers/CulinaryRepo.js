@@ -1,16 +1,19 @@
 app.controller( 'CulinaryRepoCtrl', [
   '$scope',
-  '$firebaseArray',
+  '$firebaseObject',
   '$compile',
-  function($scope, $firebaseArray, $compile){
+  function($scope, $firebaseObject, $compile){
     //Recipe Array to push to firebase
     var recipeRepoArr = [];
     //Recipe Object to be added to Recipe Array
     var recipeRepoObj = {};
     //Get Firebase reference
-    var ref = new Firebase("https://xhub.firebaseio.com/users");
+    var mainRef = new Firebase("https://xhub.firebaseio.com/users");
+    //Get Firebase reference
+    var authProvider = mainRef.getAuth().uid;
+    var ref = new Firebase("https://xhub.firebaseio.com/users/" + authProvider);
     //creates firebase reference
-    $scope.repoArr = $firebaseArray(ref);
+    var obj = $firebaseObject(ref);
 
     $scope.recipeName = "";
     $scope.cuisineName = "";
@@ -107,10 +110,10 @@ app.controller( 'CulinaryRepoCtrl', [
       recipeRepoArr.push(recipeRepoObj);
 
       console.log("RECIPEREPOARR", recipeRepoArr);
-
-      $scope.repoArr.$loaded().then(function(data){
-        console.log("DATA", data);
-        data[0].recipe = recipeRepoArr;
+      //save recipRepoArr to userObject
+      obj.$bindTo($scope, "data").then(function(){
+        console.log("DATA", $scope.data);
+        $scope.data.recipe = recipeRepoArr;
         });
 
       $scope.recipeName = "";

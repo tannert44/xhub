@@ -1,17 +1,17 @@
 app.controller("SignUpCtrl",[
   '$scope',
-  '$firebaseArray',
+  '$firebaseObject',
   '$location',
-  function($scope, $firebaseArray, $location) {
+  function($scope, $firebaseObject, $location) {
     console.log("Jesus is lord");
 
     //Keeps User Data
     var userObject = {};
     //Get Firebase reference
     var ref = new Firebase("https://xhub.firebaseio.com/users");
-    //Creates a firebase array with reference
-    var obj = $firebaseArray(ref);
     //Logs the user in directly after creating an account is called in createUserProfile()
+    //Creates a firebase array with reference
+    var obj = $firebaseObject(ref);
     var createLogin = function(){
       ref.authWithPassword({
         email    : $scope.newEmail,
@@ -21,11 +21,12 @@ app.controller("SignUpCtrl",[
           console.log("Login Failed!", error);
         } else {
           console.log("Authenticated successfully with payload:", authData);
-
+          console.log("authdata", authData.uid);
           console.log("USEROBJ", userObject);
-          obj.$add(userObject); 
-          $location.path('/profile');
-          $scope.$apply();
+          obj[authData.uid] = userObject;
+          obj.$save().then(function(ref){
+            $location.path('/profile');
+          });
         }
       });
     };

@@ -1,4 +1,4 @@
-var app = angular.module("xhubApp", ["ngRoute", "firebase"]);
+var app = angular.module("peritiaApp", ["ngRoute", "firebase"]);
 
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -13,7 +13,8 @@ app.config(['$routeProvider',
       })
       .when('/profile', {
         templateUrl: 'partials/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        authRequired: true
       })
       .when('/chooseskill', {
         templateUrl: 'partials/chooseskill.html',

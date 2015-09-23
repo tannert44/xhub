@@ -1,18 +1,20 @@
 app.controller( 'ProfileCtrl', [
   '$scope',
-  '$firebaseArray',
-  function($scope, $firebaseArray){
+  '$firebaseObject',
+  function($scope, $firebaseObject){
+    var mainRef = new Firebase("https://xhub.firebaseio.com/users")
     //Get Firebase reference
-    var ref = new Firebase("https://xhub.firebaseio.com/users");
+    var authProvider = mainRef.getAuth().uid;
+    var ref = new Firebase("https://xhub.firebaseio.com/users/" + authProvider);
+
+    
+    
+    
     //creates firebase reference
-    $scope.arr = $firebaseArray(ref);
-    //Once data is loaded set variable to Object attribute to auto contrusct profile with profile.html
-    $scope.arr.$loaded().then(function(data){
-    console.log("DATA", data);
-    $scope.name = data[0].userName;
-    $scope.about = data[0].about;
-    $scope.business = data[0].business;
-    });
+    var obj = $firebaseObject(ref);
+    obj.$bindTo($scope, "data").then(function(){
+      console.log($scope.data);
+    });    
 
   }
 
