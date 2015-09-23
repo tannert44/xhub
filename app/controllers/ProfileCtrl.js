@@ -2,7 +2,7 @@ app.controller( 'ProfileCtrl', [
   '$scope',
   '$firebaseObject',
   function($scope, $firebaseObject){
-    var mainRef = new Firebase("https://xhub.firebaseio.com/users")
+    var mainRef = new Firebase("https://xhub.firebaseio.com/users");
     //Get Firebase reference
     var authProvider = mainRef.getAuth().uid;
     var ref = new Firebase("https://xhub.firebaseio.com/users/" + authProvider);
